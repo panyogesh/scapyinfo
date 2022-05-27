@@ -1,0 +1,8 @@
+vagrant@oai-gnb-ue-sim:~$ cat ScapyIPv6GTPU.py
+#!/usr/bin/python3.6
+
+from scapy.contrib.gtp import GTP_U_Header
+from scapy.all import *
+
+sendp(Ether()/IP(src="192.168.60.154", dst="192.168.60.142")/UDP(sport=2152,dport=2152)/GTP_U_Header(teid=0x7fffffff)/IPv6(src="fe80:0000:0000:0000:24DA:F0F5:8E74:D6B4", dst="ff02::2")/ICMPv6ND_RS(),iface="enp0s8")
+vagrant@oai-gnb-ue-sim:~$
